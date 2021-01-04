@@ -1,0 +1,47 @@
+extends ./layout/admin/indexAdmin
+
+block contenido  
+  h1.mt-5.py-5.text-center #{pagina}     
+  // p= JSON.stringify(viajes) -- Muestra toda la info de la bd
+  main.container.mt-5
+      include ./layout/Admin/vista_viajesAdmin
+      .row
+        .col-md-12
+          h2.d-block.w-100.text-center.mt-5 Agrega un nuevo Viaje
+          if(errores)
+              each error in errores   
+                  .alert.col.alert-danger.text-center= error.mensaje
+
+      .row.justify-content-center.col
+          .col-md-8
+              form(action='/upload' method='POST' enctype='multipart/form-data')
+                  .form-group
+                      label.text-justify(for="titulo") Titulo
+                      input#titulo(Type="text", placeholder="Titulo", name="titulo", class="form-control", value= titulo)
+                  .form-group
+                      label.text-justify(for="precio") Precio
+                      input#precio(Type="text", placeholder="Precio", name="precio", class="form-control", value= precio)
+                  .form-group
+                      label.text-justify(for="fecha_ida") Fecha ida
+                      input#titulo(Type="text", placeholder="2000/01/31", name="fecha_ida", class="form-control", value= fecha_ida)
+                  .form-group
+                      label.text-justify(for="fecha_vuelta") Fecha vuelta
+                      input#titulo(Type="text", placeholder="2000/01/31", name="fecha_vuelta", class="form-control", value= fecha_vuelta) 
+                  .form-group
+                      label.text-justify(for="imagen") Imagen portada
+                      input#titulo(Type="text", placeholder="paris", name="imagen", class="form-control", value= imagen)
+                  .form-group
+                      input(type='file' name='file') 
+                  .form-group 
+                      label(for="descripcion") Descripcion
+                      textarea#mensaje(name="descripcion", cols="30", rows="3" placeholder="Descripcion" class="form-control"
+                      )= descripcion
+                  .form-group
+                      label.text-justify(for="disponibles") Disponibles
+                      input#titulo(Type="text", placeholder="Disponibles", name="disponibles", class="form-control", value= disponibles)
+                  .form-group
+                      label.text-justify(for="slug") Slug
+                      input#titulo(Type="text", placeholder="viaje-mexico", name="slug", class="form-control", value= slug)
+                  .form-group      
+                      input.btn.btn-success.btn-block(type="submit")
+            

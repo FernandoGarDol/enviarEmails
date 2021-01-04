@@ -1,0 +1,31 @@
+extends ./layout/index
+
+block slider
+    .slider
+        h1 Acapulco     
+        em Aventura
+
+block contenido
+    main.container.mt-5
+        h2.text-center.mb-5 Sobre Nosotros
+        .row.mb-5
+            .col-md-6
+                p.text-justify  Typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                p.text.justify The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
+            .col-md-6
+                img(src="img/inicio_nosotros.jpg", alt= "imagen nosotros" class="img-fluid")
+        include ./layout/vista_viajes
+
+    .descuento   
+        .container
+            .row
+                .col-md-6
+                    .contenido
+                        h3.titulo Viaje a Canada
+                        p.titulo 20 de Septiempre 21 - 10 de Octubre 21
+                        p.precio $15,000 MN
+    .container
+        include ./layout/vista_testimoniales
+            
+
+    

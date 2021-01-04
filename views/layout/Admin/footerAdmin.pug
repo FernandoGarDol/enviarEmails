@@ -1,0 +1,13 @@
+footer.container.py-5
+    .row
+        .col-md-6
+            nav.nav.footer.justify-content-center.justify-content-md-start
+                a.nav-link(href="/reservacionesAdmin") Reservaciones
+                a.nav-link(href="/viajesAdmin") Viajes
+                a.nav-link(href="/testimonialesAdmin") Testimoniales
+                form(action='/logout' method='get')
+                    input.buttonSE(type='submit' name='Submit' value="Cerrar Sesion" ) 
+        .col
+            p.copyright.text-center.text-md-right
+                | Todos Los Derechos Reservados  
+                span #{actualYear}

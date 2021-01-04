@@ -1,0 +1,9 @@
+extends ./layout/index
+
+block contenido
+    
+            h1.mt-5.py-5.text-center #{pagina}     
+            // p= JSON.stringify(viajes) -- Muestra toda la info de la bd
+            main.container.mt-5
+                include ./layout/vista_viajes
+            
