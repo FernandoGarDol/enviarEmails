@@ -168,6 +168,11 @@ const eliminarViaje = async(req, res, next) =>{
    
 }
 
+const paginaRestablecer =  (req, res) => {    
+    res.render('restablecer');
+}
+
+
 
 export{
     paginaInicio,
@@ -183,7 +188,9 @@ export{
     paginaReservacionesAdmin,
     paginaTestimonialesAdmin,
     paginaViajesAdmin,
-    eliminarViaje
+    eliminarViaje,
+    paginaRestablecer,
+    
 }
 
 

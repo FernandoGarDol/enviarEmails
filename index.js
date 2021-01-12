@@ -11,6 +11,10 @@ import  serializeUser from 'passport';
 var PassportLocal = PassportLocals.Strategy;
 import fileUpload from 'express-fileupload';
 
+
+
+
+
 import {Viaje}  from './models/Viaje.js'
 
 const app = express();
@@ -50,6 +54,17 @@ app.use(session({
     resave: true,
     saveUninitialized: true
  }));
+
+
+
+
+/// Nodemailer
+
+
+
+
+/////////////////////////////
+
 
  //configurar passport
 

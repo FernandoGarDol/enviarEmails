@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+html
+    head
+      meta(charset='UTF-8')
+      meta(name='viewport' content='width=device-width, initial-scale=1.0')    
+      title Document
+      link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+      link(href='https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Open+Sans:wght@400;700&family=Staatliches&display=swap', rel='stylesheet')
+      link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.8.1/css/all.css', integrity='sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf', crossorigin='anonymous')
+      link(rel="stylesheet", href="/css/styleLogin.css")
+      script(type='text/javascript' src='/js/loginstyles.js')
+
+      
+    body 
+      .page
+        .container
+          .leftR
+            .login Recuperar Contraseña
+            .eula.text-justify
+              | Si no deseas recuperar la contraseña regresa a la pagina del login dando, 
+              a(href='/login') click
+              |  aqui :) .
+
+          .rightR
+            svg(viewbox='0 0 320 300')
+            
+                
+              path(d='m 40,120.00016 239.99984,-3.2e-4 c 0,0 24.99263,0.79932 25.00016,35.00016 0.008,34.20084 -25.00016,35 -25.00016,35 h -239.99984 c 0,-0.0205 -25,4.01348 -25,38.5 0,34.48652 25,38.5 25,38.5 h 215 c 0,0 20,-0.99604 20,-25 0,-24.00396 -20,-25 -20,-25 h -190 c 0,0 -20,1.71033 -20,25 0,24.00396 20,25 20,25 h 168.57143')
+            form.form.d-block(method='post', action='/email')
+              p.pmedio Si desea que le enviemos su contraseña al correo registrado de click en el siguiente boton.
+              input#submit2(type='submit', value='restablecer')
+          

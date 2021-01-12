@@ -83,27 +83,6 @@ const guardarViaje = async(req,res) => {
         pagina: 'Administracion Viajes',viajes
     })
     }
-     /*
-    
-    else {
-        //Almacenar en la base de datos
-        try{
-            await Testimonial.create({  //Insercion en LA BASE DE DATOS
-                nombre,
-                correo,
-                mensaje
-            });
-
-            res.redirect('/testimoniales');
-        }catch(error){
-
-        }
-    }
-    console.log(errores)
-*/
-
-
-
 
 
 const eliminarViaje = async(req, res, next) =>{
