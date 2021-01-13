@@ -1,5 +1,6 @@
 import {Viaje}  from '../models/Viaje.js'
-import {Testimonial} from '../models/Testimoniales.js'
+import { Testimonial } from '../models/Testimoniales.js'
+import { Reservaciones } from '../models/Reservaciones.js'
 import PassportLocals from 'passport-local'
 import  serializeUser from 'passport';
 var PassportLocal = PassportLocals.Strategy;
@@ -113,10 +114,50 @@ const paginaAdmin2 = (req,res,next) =>{
     res.redirect("/login");
 }
 
-const paginaReservacionesAdmin = (req,res,next) =>{
-    if(req.isAuthenticated()) res.render("reservacionesAdmin");;
+const paginaReservacionesAdmin = async (req, res) => {
+    try {
+        const reservaciones = await Reservaciones.findAll({
+            order: [['id', 'ASC']]
+        });
+        console.log(reservaciones);
+        if (req.isAuthenticated()) res.render("reservacionesAdmin", { pagina: 'Administracion de Reservaciones', reservaciones });
 
-    res.redirect("/login");
+        res.redirect("/login");
+    }
+    catch (error) {
+
+    }
+}
+
+const paginaReservaciones = (req, res) => {
+    req.logout();
+    res.render('reservaciones', {
+        pagina: 'Reservaciones',
+    });
+}
+
+const Reservacion = async (req, res) => {
+    req.logout();
+
+    try {
+        const viajes = await Viaje.findAll({
+            order: [['id', 'DESC']]
+        });
+        console.log(viajes);
+        res.render('reservacion', {
+            pagina: 'Reservaciones',
+            viajes
+        });
+    } catch (error) {
+
+    }
+}
+
+const cancelarReservaciones = (req, res) => {
+    req.logout();
+    res.render('cancelar', {
+        pagina: 'Cancelar',
+    });
 }
 
 const paginaTestimonialesAdmin = async (req,res,next) =>{
@@ -186,11 +227,13 @@ export{
     paginaAdmin,
     paginaAdmin2,
     paginaReservacionesAdmin,
+    paginaReservaciones,
     paginaTestimonialesAdmin,
     paginaViajesAdmin,
     eliminarViaje,
     paginaRestablecer,
-    
+    Reservacion,
+    cancelarReservaciones 
 }
 
 

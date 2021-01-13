@@ -1,6 +1,21 @@
 extends ./layout/admin/indexAdmin
 
 block contenido
-  H1 Desde Reservaciones 1
-  form(action='/logout' method='get')
-    input(type='submit' name='Submit' id='')
+  h1.mt-5.py-5.text-center #{pagina}
+
+  table(style='width:100%', border='3', bordercolor='#cda434')
+      tr
+        th(class='tam-bor') Id
+        th(class='tam-bor') Nombre
+        th(class='tam-bor') Correo
+        th(class='tam-bor') Destino
+        th(class='tam-bor') Cantidad de boletos
+
+      each reservacion in reservaciones 
+        tr
+           td(class='tam-bor') #{reservacion.id}
+           td(class='tam-bor') #{reservacion.nombre}
+           td(class='tam-bor') #{reservacion.correo}
+           td(class='tam-bor') #{reservacion.destino}
+           td(class='tam-bor') #{reservacion.boletos}
+     

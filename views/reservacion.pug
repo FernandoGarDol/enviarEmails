@@ -1,0 +1,37 @@
+extends ./layout/index
+
+block contenido
+    main.container.mt-5
+
+    .row
+        .col-md-12
+          h2.d-block.w-100.text-center.mt-5 Reservar vuelo
+          if(errores)
+              each error in errores   
+                  .alert.col.alert-danger.text-center= error.mensaje
+          if(exito)
+                  .alert.col.alert-success.text-center= exito
+
+    .row.justify-content-center.col
+        .col-md-8
+            form(action="/reservacion" method="POST")
+                .form-group
+                    label.text-justify(for="destino") Destino
+                    <select placeholder="Eligir destino", name="destino", class="form-control">
+                        each viaje in viajes 
+                            <option value="#{viaje.titulo}">#{viaje.titulo}</option>
+                    </select>
+
+                .form-group
+                    label.text-justify(for="boletos") Numero de boletos
+                    input#boletos(Type="text", placeholder="Ingresar numero de boletos", name="boletos", class="form-control", value= boletos)
+
+                .form-group
+                    label.text-justify(for="nombre") Nombre
+                    input#nombre(Type="text", placeholder="Tu nombre", name="nombre", class="form-control", value= nombre)
+
+                .form.group
+                    label.text-justify(for="correo") Correo
+                    input#correo(Type="text", placeholder="Tu correo", name="correo", class="form-control", value= correo)
+                    <br/>
+                input.btn.btn-success.btn-block(type="submit")
