@@ -194,3 +194,7 @@ i {
 .img-viajes{
     width: auto;height: 350px
 }
+
+.tam-bor {
+    border-width: 3px;
+}

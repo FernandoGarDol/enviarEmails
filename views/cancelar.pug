@@ -1,0 +1,25 @@
+extends ./layout/index
+
+block contenido
+    main.container.mt-5
+
+    .row
+        .col-md-12
+          h2.d-block.w-100.text-center.mt-5 Cancelar reservacion
+          if(errores)
+              each error in errores   
+                  .alert.col.alert-danger.text-center= error.mensaje
+          if(exito)
+                  .alert.col.alert-success.text-center= exito
+
+    .row.justify-content-center.col
+        .col-md-8
+            form(action="/cancelar" method="POST")
+
+                .form-group
+                    label.text-justify(for="id") Identificacion
+                    input#id(Type="text", placeholder="Ingresar numero de Identificacion", name="id", class="form-control", value= id)
+
+                input.btn.btn-success.btn-block(type="submit")
+
+                
