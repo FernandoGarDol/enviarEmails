@@ -1,21 +1,18 @@
 extends ./layout/admin/indexAdmin
 
 block contenido
-  h1.mt-5.py-5.text-center #{pagina}
+  h1.mt-5.py-5.text-center #{pagina}  
+  each reservacion in reservaciones 
+    .container
+      .card.mt-5
+        .card-body
+          h3.card-title.mb-5  #{reservacion.nombre}
+          h4.card-subtitle.mb-3.text-muted Correo:  #{reservacion.correo}
+          h4.card-subtitle.mb-3.text-muted Numero Telefonico:  #{reservacion.numero}
+          h4.card-subtitle.mb-3.text-muted Destino: #{reservacion.destino}          
+          h4.card-subtitle.mb-3.text-muted Numero de Boletos: #{reservacion.boletos}
+          h4.card-subtitle.mb-3.text-muted Codigo de Reservaciones: #{reservacion.codigo}
 
-  table(style='width:100%', border='3', bordercolor='#cda434')
-      tr
-        th(class='tam-bor') Id
-        th(class='tam-bor') Nombre
-        th(class='tam-bor') Correo
-        th(class='tam-bor') Destino
-        th(class='tam-bor') Cantidad de boletos
+        
 
-      each reservacion in reservaciones 
-        tr
-           td(class='tam-bor') #{reservacion.id}
-           td(class='tam-bor') #{reservacion.nombre}
-           td(class='tam-bor') #{reservacion.correo}
-           td(class='tam-bor') #{reservacion.destino}
-           td(class='tam-bor') #{reservacion.boletos}
      

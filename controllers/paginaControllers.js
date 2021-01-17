@@ -30,12 +30,12 @@ const paginaInicio= async (req, res) => {
    
 }
 
-const hola= 2+7;
+
 const paginaNosotros =  (req, res) => {
     req.logout();
     res.render('nosotros', {
         pagina: 'Nosotros',
-        hola : hola
+
     });
 
 }
@@ -111,7 +111,9 @@ const paginaAdmin = (req,res,next) =>{
 const paginaAdmin2 = (req,res,next) =>{
     if(req.isAuthenticated()) res.render("admin2");;
 
-    res.redirect("/login");
+    res.redirect("/login",{
+        error: " "
+    });
 }
 
 const paginaReservacionesAdmin = async (req, res) => {

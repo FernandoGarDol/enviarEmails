@@ -8,7 +8,10 @@ const guardarReservaciones = async (req, res) => {
 
     //validar cadenas vacias
 
-    const { nombre, boletos, correo, destino } = req.body;
+    const { nombre, boletos, correo, destino,numero } = req.body;
+
+    const codigo = makeid();
+
     const errores = [];
     var cBoletos = parseInt(boletos.trim());
     var exito;
@@ -22,6 +25,10 @@ const guardarReservaciones = async (req, res) => {
     if (correo.trim() === '') {
         errores.push({ mensaje: 'El correo esta vacio. Favor de ingresarlo' });
     }
+    if (numero.trim() === '') {
+        errores.push({ mensaje: 'El numero esta vacio. Favor de ingresarlo' });
+    }
+
     
     if (cBoletos > 0) {
         try {
@@ -54,7 +61,7 @@ const guardarReservaciones = async (req, res) => {
     if (errores.length > 0) {
         res.render('reservacion', {
             errores,
-            nombre, correo, boletos, destino, viajes
+            nombre, correo, boletos, destino, viajes, numero
         });
     } else {
         //Almacenar en la base de datos
@@ -64,6 +71,8 @@ const guardarReservaciones = async (req, res) => {
                 correo,
                 destino,
                 boletos,
+                codigo,
+                numero
             });
 
             await Viaje.update({ disponibles: boletosRestantes }, { where: { titulo: destino } })
@@ -112,10 +121,10 @@ const guardarReservaciones = async (req, res) => {
             });
 
             const mailOptions = {
-                from: 'admonviajess@gmail.com', // dirección del remitente 
+                from: 'admonviajess@gmail.com', // direcciï¿½n del remitente 
                 to: email, // lista de destinatarios 
-                subject: 'Proceso de pago', // Línea de asunto 
-                text: ' Sus datos :\n ID: ' + iden + '\n Nombre: ' + nombre + '\n Destino: ' + destino + '\n Usted debe de pagar en la siguiente cuenta bancaria MX 13 2090 0000 29 0350000083 la cantidad de $' + precio// cuerpo de texto plano 
+                subject: 'Proceso de pago', // Lï¿½nea de asunto 
+                text: 'Hola ' + nombre+ '!!!. Usted ha solicitado una reservacion de vuelo mediante nuestra Pagina Web. \n Sus datos :\n ID: ' + iden + '\n Nombre: ' + nombre + '\n Destino: ' + destino + '\n Numero de Boletos: ' + boletos + '\n Codigo de ReservaciÃ³n:' + codigo +'\n Usted debe de pagar en la siguiente cuenta bancaria MX 13 2090 0000 29 0350000083 la cantidad de $' + (precio*boletos)// cuerpo de texto plano 
             };
 
             transporter.sendMail(mailOptions, function (err, info) {
@@ -137,5 +146,15 @@ const guardarReservaciones = async (req, res) => {
     console.log(errores)
 
 }
+
+
+
+function makeid() { 
+    var text = ""; 
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"; 
+    for (var i = 0; i < 6; i++) 
+        text += possible.charAt(Math.floor(Math.random() * possible.length)); 
+    return text; 
+} 
 
 export { guardarReservaciones};

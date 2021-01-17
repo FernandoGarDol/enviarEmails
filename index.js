@@ -71,8 +71,9 @@ app.use(session({
  app.use(passport.initialize());
  app.use(passport.session());
 
+
 passport.use(new PassportLocal(function(usenarme,password,done){
-    if(usenarme === "F" && password === "1"){
+    if(usenarme === "Administrador Martinez" && password === "aDM3456S"){
         return done (null, {id:1 , name: "Fernando"}); //El usuarui Fernando Inicio Sesion    
     }
 
@@ -91,62 +92,7 @@ passport.deserializeUser(function(id,done){
 //Definir la carpeta publica
 app.use(express.static('public'));  
 
-/*app.post('/upload', async(req,res) => {
 
-    const {titulo, precio, fecha_ida, fecha_vuelta, imagen, file, descripcion, disponibles, slug} = req.body;
-    const errores = [];
-
-    if(titulo.trim() === ''){
-        errores.push({mensaje: 'El titulo esta vacio. Favor de ingresarlo.'});
-    }        
-    if(precio.trim() === ''){
-        errores.push({mensaje: 'El precio esta vacio. Favor de ingresarlo.'});
-    }        
-    if(fecha_ida.trim() === ''){
-        errores.push({mensaje: 'La fecha de ida  esta vacia. Favor de ingresarlo'});
-    }
-    if(fecha_vuelta.trim() === ''){
-        errores.push({mensaje: 'La fecha de vuelta  esta vacia. Favor de ingresarlo'});
-    }
-    if(imagen.trim() === ''){
-        errores.push({mensaje: 'La imagen esta vacia. Favor de ingresarlo'});
-    }
-    if(file == null){
-        errores.push({mensaje: 'El archivo esta vacio. Favor de ingresarlo'});
-    }
-    if(descripcion.trim() === ''){
-        errores.push({mensaje: 'La descripcion esta vacia. Favor de ingresarlo'});
-    }
-    if(disponibles.trim() === ''){
-        errores.push({mensaje: 'La caja disponibles esta vacia. Favor de ingresarlo'});
-    }
-    if(slug.trim() === ''){
-        errores.push({mensaje: 'La caja de slug esta vacia. Favor de ingresarlo'});
-    }
-    
-    if (errores.length >0){
-        //Consultar testimoniales existenctes
-        const viajes = await Viaje.findAll();
-        res.render('viajesAdmin',{
-            pagina: 'Administracion Viajes',
-            errores,
-            titulo, precio,fecha_ida, fecha_vuelta, imagen,file, descripcion, disponibles, slug, viajes
-        });                                                
-    }else{
-
-
-
-        let EDFile = req.files.file
-        EDFile.mv(`./public/prueba/${EDFile.name}`,err => {
-            if(err) return res.status(500).send({ message : err })
-            return res.status(200).send({ message : 'File upload' })
-        })
-    }
-})*/
-
-//app.get("/admin", );
-
-//---------------------
 
 
 //DEfine rutas
@@ -158,3 +104,6 @@ app.use('/', router);
 app.listen(port, () =>{
     console.log(`El servidor esta corriendo en el puesto ${port}`)
 })
+
+
+

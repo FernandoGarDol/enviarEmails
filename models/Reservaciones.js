@@ -17,5 +17,11 @@ export const Reservaciones = db.define('reservaciones', {
     boletos: {
         type: Sequelize.STRING
     },
+    codigo :{
+        type: Sequelize.STRING
+    },
+    numero :{
+        type: Sequelize.STRING
+    }
 });
 

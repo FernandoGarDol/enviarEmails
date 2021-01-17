@@ -28,6 +28,8 @@ CREATE TABLE `reservaciones` (
   `correo` varchar(45) NOT NULL,
   `destino` varchar(45) NOT NULL,
   `boletos` varchar(45) NOT NULL,
+  `codigo` varchar(10) NOT NULL,
+  `numero` varchar(12) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;

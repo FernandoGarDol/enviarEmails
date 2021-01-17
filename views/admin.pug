@@ -1,6 +1,31 @@
+
 extends ./layout/admin/indexAdmin
 
+block sliderAdmin
+    .slider
+        h1 Acapulco     
+        em Aventura      
+           
+
 block contenido
-  H1 Desde ADMIN 1
-  form(action='/logout' method='get')
-    input(type='submit' name='Submit' id='')
+    main.container.mt-5
+        h2.text-center.mb-5 Sobre Nosotros
+        .row.mb-5
+            .col-md-6
+               p.text-justify  Nosotros somos una agencia de viajes liderada por el Lic. En Turismo Álvaro Martínez. Nuestra empresa nace 3 años atrás como una búsqueda de emprendimiento, buscando ofrecer las mejores experiencias en turismo. 
+
+                p.text.justify Cada uno de nuestros viajes, son pensados en búsqueda de la satisfacción total de nuestros clientes, pues consideramos que uno de los tesoros mas importantes de la vida son las experiencias que tenemos a lo largo de ella. Es por eso que nuestro objetivo es ofrecer una experiencia inigualable en cada viaje.
+
+                p.text-justify Nos encargamos de elegir cautelosamente los mejores sitios para visitar, ofreciendo un amplio catalogo de destinos, buscando las mejores atracciones y actividades de cada destino. Siempre ofreciendo los mejores precios y las mejores experiencias.
+            .col-md-6
+                img(src="img/inicio_nosotros.jpg", alt= "imagen nosotros" class="img-fluid")
+        
+
+    .descuento   
+        .container
+            .row
+                .col-md-6
+                    .contenido
+                        h3.titulo LOS MEJORES DESTINOS
+                        p.titulo FECHAS DISPONIBLES
+                        p.precio  LOS MEJORES PRECIOS 

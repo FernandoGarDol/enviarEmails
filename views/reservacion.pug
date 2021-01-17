@@ -29,9 +29,13 @@ block contenido
                 .form-group
                     label.text-justify(for="nombre") Nombre
                     input#nombre(Type="text", placeholder="Tu nombre", name="nombre", class="form-control", value= nombre)
+                
+                .form-group
+                    label.text-justify(for="numero") Numero de boletos
+                    input#numero(Type="tel", placeholder="Ingresar numero Telefonico (5555555555)", name="numero", class="form-control", value= numero,  pattern="[0-9]{10}")
 
                 .form.group
                     label.text-justify(for="correo") Correo
-                    input#correo(Type="text", placeholder="Tu correo", name="correo", class="form-control", value= correo)
+                    input#correo(Type="email", placeholder="Tu correo", name="correo", class="form-control", value= correo)
                     <br/>
                 input.btn.btn-success.btn-block(type="submit")

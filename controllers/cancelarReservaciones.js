@@ -5,23 +5,23 @@ const cancelar = async (req, res) => {
 
     //validar cadenas vacias
 
-    const { id } = req.body;
+    const { codigo } = req.body;
     const errores = [];
     var exito;
 
-    if (id.trim() === '') {
-        errores.push({ mensaje: 'El numero de identificacion esta vacio. Favor de ingresarlo' });
+    if (codigo.trim() === '') {
+        errores.push({ mensaje: 'El codigo de Reservación esta vacio. Favor de ingresarlo' });
     }
     else {
         try {
             const iden = await Reservaciones.findAll(
-                { where: { id: id } }
+                { where: { codigo: codigo } }
             );
 
             var flag = 0;
 
             iden.find(function (element) {
-                if (element.id == id)
+                if (element.codigo == codigo)
                     flag = 1;
             });
             console.log(flag);
@@ -41,7 +41,7 @@ const cancelar = async (req, res) => {
     else {
         try {
             const cb = await Reservaciones.findAll(
-                { where: { id: id } }
+                { where: { codigo: codigo } }
             );
 
             var TBoletos;
@@ -73,7 +73,7 @@ const cancelar = async (req, res) => {
 
             await Viaje.update({ disponibles: boletos }, { where: { titulo: destino } })
         
-            await Reservaciones.destroy({ where: { id: id } })
+            await Reservaciones.destroy({ where: { codigo: codigo } })
 
             exito = 'Se ha eliminado su reservacion';
 

@@ -1,5 +1,7 @@
 import nodemailer from 'nodemailer';
 import smtpTransport from 'nodemailer-smtp-transport';
+
+
 let transporter = nodemailer.createTransport(smtpTransport ({     
     service: 'gmail', 
     host: 'smtp.gmail.com', 
@@ -23,7 +25,7 @@ const mailOptions = {
     from: 'admonviajess@gmail.com', // dirección del remitente 
     to: 'agenciaadeviajess@gmail.com', // lista de destinatarios 
     subject: 'Restablecer la contraseña', // Línea de asunto 
-    text: 'Usted solicito restablecer su contraseña, del sistema de administracion de viajes.\n  Su contraseña es  :'// cuerpo de texto plano 
+    text: 'Usted solicito restablecer su contraseña, del sistema de administracion de viajes.\n  Su usuario es: Administrador Martinez' + '.\nSu contraseña es: aDM3456S' // cuerpo de texto plano 
   };
 
 
@@ -34,7 +36,9 @@ const paginaEmail =  (req,res) =>{
         else 
           console.log ('Email sent:' + info.response);       
      })
-    res.render('login');
+    res.render('login',{
+      error: "Se ha enviado un correo con los datos de inicio de sesion."
+    });
 };
 
 export {paginaEmail};
